@@ -1,6 +1,5 @@
-package MCLauncherFX.MainFrame;
+package MCLauncherFX.utils;
 import java.io.*;
-import javax.swing.*;
 import java.awt.Graphics;
 public class MCLauncher {
 	public static void start(String username,int maxmem,String javapath,boolean isjavaboot)throws IOException{
@@ -21,10 +20,5 @@ public class MCLauncher {
                 Process process = run.exec(cmd);
                 }
 	}
-        public static void checkmem(int maxmem) throws IllegalMemoryException{
-            if(maxmem%256!=0)
-                {
-                    throw new IllegalMemoryException("内存不是256的整数倍");
-                }
-        }
+       
 }

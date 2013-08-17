@@ -11,9 +11,9 @@
   </resources>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="MCLauncherFX.jar" size="26345" download="eager" />
+    <jar href="MCLauncherFX.jar" size="43569" download="eager" />
   </resources>
-  <applet-desc  width="800" height="600" main-class="MCLauncherFX.MainFrame.MainFrame"  name="MCLauncherFX" >
+  <applet-desc  width="800" height="600" main-class="MCLauncherFX.ui.MainFrame"  name="MCLauncherFX" >
   </applet-desc>
   <update check="always"/>
 </jnlp>

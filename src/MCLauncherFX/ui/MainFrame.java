@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MCLauncherFX.MainFrame;
+package MCLauncherFX.ui;
+import MCLauncherFX.utils.MCLauncher;
 import java.io.*;
 import java.awt.Graphics; 
 import java.awt.Image; 
@@ -77,7 +78,6 @@ public String jpath;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MCLauncerFX Alpha 3");
         setBackground(java.awt.SystemColor.activeCaption);
-        setPreferredSize(new java.awt.Dimension(460, 460));
         setResizable(false);
 
         src_topic.setFont(new java.awt.Font("Freestyle Script", 0, 36)); // NOI18N
@@ -226,20 +226,9 @@ public String jpath;
        {
            maxmem=1024;
        }
-       try{
+      
            
        
-       MCLauncher.checkmem(maxmem);
-       }
-       catch(IllegalMemoryException e)
-       {
-           e.printStackTrace();
-           System.exit(1);
-       }
-       finally
-       {
-        
-       }
          boolean isjava = rcv_isdebug.isSelected();
        MCLauncher launch = new MCLauncher();
            try{
