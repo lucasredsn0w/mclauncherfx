@@ -23,8 +23,26 @@ public class MCLauncher {
         else if (totalmem<=4096)
             return 2048;
         return 1;
-        
+                
     }
+    public static int getjavaversion()
+    {
+        String javaVersion = System.getProperty("java.version");  
+        // version String should look like "1.4.2_10"   
+        if (javaVersion.contains("1.7.")) {  
+            return 17; 
+        }  
+        else if (javaVersion.contains("1.6.")) {  
+           return 16;
+        }  
+        else {  
+            // else leave 1.5 as default (it's either 1.5 or unknown)   
+           return 1;
+        }  
+      
+
+    }
+    
     
         
     
