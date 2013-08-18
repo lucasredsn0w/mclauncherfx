@@ -7,9 +7,13 @@ package MCLauncherFX.ui;
 import MCLauncherFX.utils.MCLauncher;
 import java.io.*;
 import java.awt.Graphics; 
+import java.awt.Graphics2D;
 import java.awt.Image; 
 import java.awt.Toolkit; 
 import javax.swing.ButtonGroup;
+import java.net.*;
+import java.awt.*;
+import javax.swing.*;
 
 /**
  *
@@ -17,11 +21,16 @@ import javax.swing.ButtonGroup;
  */
 public class MainFrame extends javax.swing.JFrame {
 public String jpath;
+Image img;
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
+        URL imgurl = MainFrame.class.getResource("img.jpg");
+        img=Toolkit.getDefaultToolkit().getImage(imgurl);
         initComponents();
+        add(new CanvasPanel());
+        
         ButtonGroup group = new ButtonGroup();
         group.add(rcv_512mem);
         group.add(rcv_1024mem);
@@ -333,4 +342,13 @@ public String jpath;
     private javax.swing.JLabel src_topic;
     private javax.swing.JLabel src_username;
     // End of variables declaration//GEN-END:variables
+}
+class CanvasPanel extends Canvas{
+    public void paint(Graphics g){
+        super.paint(g);
+        Graphics2D g2=(Graphics2D) g;
+        MainFrame s = new MainFrame();
+        g2.drawImage(s.img,0,0,this);
+    }
+            
 }
