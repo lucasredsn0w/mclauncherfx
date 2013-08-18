@@ -5,9 +5,6 @@ import java.util.*;
 import com.sun.management.OperatingSystemMXBean; 
 import sun.management.ManagementFactoryHelper;
 
-
-
-
 public class MCLauncher {
     public static final int mb=1048576;
     public int GetProperMemory(){
