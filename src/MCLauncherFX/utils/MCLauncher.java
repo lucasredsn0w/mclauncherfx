@@ -7,6 +7,7 @@ import sun.management.ManagementFactoryHelper;
 
 
 
+
 public class MCLauncher {
     public static final int mb=1048576;
     public static int GetProperMemory(){
