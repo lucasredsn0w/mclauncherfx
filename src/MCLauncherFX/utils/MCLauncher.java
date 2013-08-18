@@ -10,8 +10,6 @@ public class MCLauncher {
     public int GetProperMemory(){
         OperatingSystemMXBean osmxb =  (OperatingSystemMXBean) ManagementFactoryHelper.getOperatingSystemMXBean(); 
         long totalmem = osmxb.getFreePhysicalMemorySize()/mb;
-        
-                
         if(totalmem<=512)
             return 256;
         else if(totalmem<=1024)
