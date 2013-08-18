@@ -27,6 +27,10 @@ public String jpath;
         group.add(rcv_1024mem);
           group.add(rcv_2048mem);
             group.add(rcv_4096mem);
+            MCLauncher ss = new MCLauncher();
+            int version = ss.getjavaversion();
+            if(version<=16)
+                jLabel3.setText("状态：java版本过低！请升级！");
     }
 
     /**
@@ -56,6 +60,7 @@ public String jpath;
         rcv_javapath = new javax.swing.JTextField();
         action_searthforjava = new javax.swing.JButton();
         lbl_java = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("微软雅黑", 0, 12)); // NOI18N
         jLabel1.setText("服务器列表：");
@@ -127,6 +132,9 @@ public String jpath;
         lbl_java.setFont(new java.awt.Font("微软雅黑", 0, 12)); // NOI18N
         lbl_java.setText("Java路径：");
 
+        jLabel3.setFont(new java.awt.Font("微软雅黑", 0, 12)); // NOI18N
+        jLabel3.setText("状态：正常");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -139,7 +147,10 @@ public String jpath;
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(21, 21, 21)
                                 .addComponent(action_start))
-                            .addComponent(rcv_isdebug)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(rcv_isdebug)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel3))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,7 +204,9 @@ public String jpath;
                         .addComponent(rcv_javapath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(action_searthforjava)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(rcv_isdebug)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rcv_isdebug)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(action_start)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -305,6 +318,7 @@ public String jpath;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_java;

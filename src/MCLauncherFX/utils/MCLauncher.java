@@ -10,7 +10,7 @@ import sun.management.ManagementFactoryHelper;
 
 public class MCLauncher {
     public static final int mb=1048576;
-    public static int GetProperMemory(){
+    public int GetProperMemory(){
         OperatingSystemMXBean osmxb =  (OperatingSystemMXBean) ManagementFactoryHelper.getOperatingSystemMXBean(); 
         long totalmem = osmxb.getFreePhysicalMemorySize()/mb;
         
@@ -26,7 +26,7 @@ public class MCLauncher {
         return 1;
                 
     }
-    public static int getjavaversion()
+    public int getjavaversion()
     {
         String javaVersion = System.getProperty("java.version");  
         // version String should look like "1.4.2_10"   
