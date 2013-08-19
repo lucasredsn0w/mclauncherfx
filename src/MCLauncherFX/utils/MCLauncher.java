@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.util.*;
 import com.sun.management.OperatingSystemMXBean; 
 import sun.management.ManagementFactoryHelper;
+import java.util.*;
 
 public class MCLauncher {
     public static final int mb=1048576;
@@ -40,6 +41,7 @@ public class MCLauncher {
     }
     
     
+    
         
     
 	public static void start(String username,int maxmem,String javapath,boolean isjavaboot)throws IOException{
@@ -48,6 +50,20 @@ public class MCLauncher {
                 
 
             Process pid = null; 
+            if(username.matches(""))
+            {
+                int number;
+                Random rand = new Random();
+                number=rand.nextInt();
+                username="Steve"+number;
+                
+                
+                
+            }
+            else
+            {
+                
+            }
 		String cmddebug = "java -Xmx"+maxmem+"M -cp .\\.minecraft\\bin\\jinput.jar;.\\.minecraft\\bin\\lwjgl.jar;.\\.minecraft\\bin\\lwjgl_util.jar;.\\.minecraft\\bin\\minecraft.jar -Djava.library.path=\".\\.minecraft\\bin\\natives\" net.minecraft.client.Minecraft "+username;
 		String cmd = "javaw -Xmx"+maxmem+"M -cp .\\.minecraft\\bin\\jinput.jar;.\\.minecraft\\bin\\lwjgl.jar;.\\.minecraft\\bin\\lwjgl_util.jar;.\\.minecraft\\bin\\minecraft.jar -Djava.library.path=\".\\.minecraft\\bin\\natives\" net.minecraft.client.Minecraft "+username;
 		Runtime run = Runtime.getRuntime();
