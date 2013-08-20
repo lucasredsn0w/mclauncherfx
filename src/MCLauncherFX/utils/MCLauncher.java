@@ -5,6 +5,8 @@ import java.util.*;
 import com.sun.management.OperatingSystemMXBean; 
 import sun.management.ManagementFactoryHelper;
 import java.util.*;
+import java.net.*;
+import javax.swing.*;
 
 public class MCLauncher {
     public static final int mb=1048576;
@@ -76,5 +78,42 @@ public class MCLauncher {
                 Process process = run.exec(cmd);
                 }
 	}
+	public void checkforupdate() throws IOException{
+        URL url=new URL("http://lucasredsn0w.cscces.net/MCLauncherFX.txt");
+        //读取MCLauncherFX.txt
+        InputStreamReader isr=new InputStreamReader(url.openStream());
+        BufferedReader br=new BufferedReader(isr);
+        String s,version="beta2(0.1.3)";
+        while((s=br.readLine())!=null){
+            if(version.equals(s)==true){
+                JOptionPane.showMessageDialog(null,"已是最新版本！");
+            }
+            else{
+            int n = JOptionPane.showConfirmDialog(null, "已经有新版本发布："+s+"是否更新？", "有新版本啦！",JOptionPane.YES_NO_OPTION);
+            if(n==0){
+                URL url1=new URL("http://lucasredsn0w.cscces.net/"+s+".jar");
+  HttpURLConnection conn=(HttpURLConnection)url1.openConnection();
+  conn.connect();
+  //保存输入流的部分
+  byte[] bytes=new byte[1024];
+  BufferedInputStream bif=new BufferedInputStream(conn.getInputStream());
+  int iNum=0;
+  //将数据保存至硬盘
+  String fileName=s+".jar";
+  File file=new File("MCLauncherFX"+s+".jar");
+  FileOutputStream fos=new FileOutputStream(file);
+  while((iNum=bif.read(bytes,0,1024))!=-1){
+   fos.write(bytes,0,iNum);   
+  }
+  //关闭输入流、输出流
+  bif.close();
+  fos.close();
+  //提示用户
+  JOptionPane.showMessageDialog(null,"更新完毕！请在本文件夹打开MCLauncherFX"+s+".jar");
+            }
+            }
+        }
+        br.close();
+    }
        
 }
