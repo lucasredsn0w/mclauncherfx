@@ -1,4 +1,4 @@
-package MCLauncherFX.utils;
+﻿package MCLauncherFX.utils;
 import java.io.*;
 import java.awt.Graphics;
 import java.util.*;
@@ -85,10 +85,7 @@ public class MCLauncher {
         BufferedReader br=new BufferedReader(isr);
         String s,version="beta2(0.1.3)";
         while((s=br.readLine())!=null){
-            if(version.equals(s)==true){
-                JOptionPane.showMessageDialog(null,"已是最新版本！");
-            }
-            else{
+            if(version.equals(s)==false){
             int n = JOptionPane.showConfirmDialog(null, "已经有新版本发布："+s+"是否更新？", "有新版本啦！",JOptionPane.YES_NO_OPTION);
             if(n==0){
                 URL url1=new URL("http://lucasredsn0w.cscces.net/"+s+".jar");
