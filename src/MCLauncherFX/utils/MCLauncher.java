@@ -83,7 +83,7 @@ public class MCLauncher {
         //读取MCLauncherFX.txt
         InputStreamReader isr=new InputStreamReader(url.openStream());
         BufferedReader br=new BufferedReader(isr);
-        String s,version="beta2(0.1.3)";
+        String s,version="beta3(0.1.5)";
         while((s=br.readLine())!=null){
             if(version.equals(s)==false){
             int n = JOptionPane.showConfirmDialog(null, "已经有新版本发布："+s+"是否更新？", "有新版本啦！",JOptionPane.YES_NO_OPTION);
