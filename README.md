@@ -1,4 +1,4 @@
 mclauncherfx
 ============
 
-A Good Minecraft Launcher with JavaFX features.
+A Good Minecraft Launcher with JavaFX features(INFDEV).
