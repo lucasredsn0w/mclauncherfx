@@ -104,7 +104,7 @@ Image img;
 
         src_topic.setFont(new java.awt.Font("Freestyle Script", 0, 24)); // NOI18N
         src_topic.setForeground(new java.awt.Color(51, 153, 255));
-        src_topic.setText("LC's Minecraft Launcher FX Beta 2");
+        src_topic.setText("LC's Minecraft Launcher FX Beta 3");
 
         src_username.setFont(new java.awt.Font("微软雅黑", 0, 12)); // NOI18N
         src_username.setText("用户名：");
