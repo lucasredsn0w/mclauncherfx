@@ -47,25 +47,17 @@ public class MCLauncher {
         
     
 	public static void start(String username,int maxmem,String javapath,boolean isjavaboot)throws IOException{
-		
-		
-                
-
             Process pid = null; 
+            String osName = System.getProperty("os.name");
             if(username.matches(""))
             {
                 int number;
                 Random rand = new Random();
                 number=rand.nextInt();
-                username="Steve"+number;
-                
-                
-                
+                username="Steve"+number;   
             }
-            else
+            else if(osName.indexOf("Windows")!=-1)
             {
-                
-            }
 		String cmddebug = "java -Xmx"+maxmem+"M -cp .\\.minecraft\\bin\\jinput.jar;.\\.minecraft\\bin\\lwjgl.jar;.\\.minecraft\\bin\\lwjgl_util.jar;.\\.minecraft\\bin\\minecraft.jar -Djava.library.path=\".\\.minecraft\\bin\\natives\" net.minecraft.client.Minecraft "+username;
 		String cmd = "javaw -Xmx"+maxmem+"M -cp .\\.minecraft\\bin\\jinput.jar;.\\.minecraft\\bin\\lwjgl.jar;.\\.minecraft\\bin\\lwjgl_util.jar;.\\.minecraft\\bin\\minecraft.jar -Djava.library.path=\".\\.minecraft\\bin\\natives\" net.minecraft.client.Minecraft "+username;
 		Runtime run = Runtime.getRuntime();
@@ -77,8 +69,13 @@ public class MCLauncher {
                 {
                 Process process = run.exec(cmd);
                 }
-	}
-	public void checkforupdate() throws IOException{
+	     }
+        }
+	/**
+     *
+     * @throws IOException
+     */
+    public void checkforupdate() throws IOException{
         URL url=new URL("http://lucasredsn0w.cscces.net/MCLauncherFX.txt");
         //读取MCLauncherFX.txt
         InputStreamReader isr=new InputStreamReader(url.openStream());
@@ -89,8 +86,8 @@ public class MCLauncher {
             int n = JOptionPane.showConfirmDialog(null, "已经有新版本发布："+s+"是否更新？", "有新版本啦！",JOptionPane.YES_NO_OPTION);
             if(n==0){
                 URL url1=new URL("http://lucasredsn0w.cscces.net/"+s+".jar");
-  HttpURLConnection conn=(HttpURLConnection)url1.openConnection();
-  conn.connect();
+                HttpURLConnection conn=(HttpURLConnection)url1.openConnection();
+                conn.connect();
   //保存输入流的部分
   byte[] bytes=new byte[1024];
   BufferedInputStream bif=new BufferedInputStream(conn.getInputStream());
@@ -109,8 +106,7 @@ public class MCLauncher {
   JOptionPane.showMessageDialog(null,"更新完毕！请在本文件夹打开MCLauncherFX"+s+".jar");
             }
             }
+            }
         }
-        br.close();
     }
        
-}

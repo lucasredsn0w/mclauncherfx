@@ -13,6 +13,7 @@ import java.awt.Toolkit;
 import javax.swing.ButtonGroup;
 import java.net.*;
 import java.awt.*;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /**
@@ -22,6 +23,7 @@ import javax.swing.*;
 public class MainFrame extends javax.swing.JFrame {
 public String jpath;
 Image img;
+private Image image=null;
     /**
      * Creates new form MainFrame
      */
@@ -29,7 +31,6 @@ Image img;
         URL imgurl = MainFrame.class.getResource("img.jpg");
         img=Toolkit.getDefaultToolkit().getImage(imgurl);
         initComponents();
-       
         
         ButtonGroup group = new ButtonGroup();
         group.add(rcv_512mem);
@@ -40,6 +41,17 @@ Image img;
             int version = ss.getjavaversion();
             if(version<=16)
                 jLabel3.setText("状态：java版本过低！请升级！");
+            try{
+                Class clz=this.getClass();
+                InputStream stream=new FileInputStream("images/images.jpg");
+                image=ImageIO.read(stream);
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+    }
+    public void paint(Graphics g){
+        super.paint(g);
+        g.drawImage(image,0,0,559,250,this);
     }
 
     /**
@@ -94,7 +106,7 @@ Image img;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MCLauncerFX Alpha 3");
-        setBackground(java.awt.SystemColor.activeCaption);
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(559, 250));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -244,10 +256,11 @@ Image img;
                     .addComponent(rcv_javapath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(action_searthforjava))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(rcv_isdebug)
-                    .addComponent(jLabel4))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(rcv_isdebug)
+                        .addComponent(jLabel4)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(action_start)
@@ -343,7 +356,6 @@ JOptionPane.showMessageDialog(null,"UI设计：Lucas\n内核设计：Lucas，“
     /**
      * @param args the command line arguments
      */
-    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
