@@ -1,4 +1,4 @@
-package MCLauncherFX.utils;
+package net.axdt.utils;
 import java.io.*;
 import java.awt.Graphics;
 import java.util.*;

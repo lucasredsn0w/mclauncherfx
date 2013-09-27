@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MCLauncherFX.ui;
-import MCLauncherFX.utils.MCLauncher;
+package net.axdt;
+import net.axdt.utils.MCLauncher;
 import java.io.*;
 import java.awt.Graphics; 
 import java.awt.Graphics2D;
@@ -20,16 +20,16 @@ import javax.swing.*;
  *
  * @author lucas
  */
-public class MainFrame extends javax.swing.JFrame {
+public class MCLauncherFX extends javax.swing.JFrame {
 public String jpath;
-Image img;
-private Image image=null;
+//Image img;
+//private Image image=null;
     /**
-     * Creates new form MainFrame
+     * Creates new form MCLauncherFX
      */
-    public MainFrame() {
-        URL imgurl = MainFrame.class.getResource("img.jpg");
-        img=Toolkit.getDefaultToolkit().getImage(imgurl);
+    public MCLauncherFX() {
+        //URL imgurl = MCLauncherFX.class.getResource("img.jpg");
+       // img=Toolkit.getDefaultToolkit().getImage(imgurl);
         initComponents();
         
         ButtonGroup group = new ButtonGroup();
@@ -41,18 +41,18 @@ private Image image=null;
             int version = ss.getjavaversion();
             if(version<=16)
                 jLabel3.setText("状态：java版本过低！请升级！");
-            try{
+            /*try{
                 Class clz=this.getClass();
                 InputStream stream=new FileInputStream("images/images.jpg");
                 image=ImageIO.read(stream);
             }catch (IOException e){
                 e.printStackTrace();
-            }
+            }*/
     }
-    public void paint(Graphics g){
-        super.paint(g);
-        g.drawImage(image,0,0,559,250,this);
-    }
+   // public void paint(Graphics g){
+      // super.paint(g);
+        //g.drawImage(image,0,0,559,250,this);
+   // }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -105,9 +105,8 @@ private Image image=null;
         jButton1.setText("测试ping值");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("MCLauncerFX Alpha 3");
+        setTitle("MCLauncherFX Alpha 3");
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(559, 250));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -370,13 +369,13 @@ JOptionPane.showMessageDialog(null,"UI设计：Lucas\n内核设计：Lucas，“
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MCLauncherFX.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MCLauncherFX.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MCLauncherFX.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MCLauncherFX.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -384,7 +383,7 @@ JOptionPane.showMessageDialog(null,"UI设计：Lucas\n内核设计：Lucas，“
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainFrame().setVisible(true);
+                new MCLauncherFX().setVisible(true);
             }
         });
     }
@@ -414,12 +413,12 @@ JOptionPane.showMessageDialog(null,"UI设计：Lucas\n内核设计：Lucas，“
     private javax.swing.JLabel src_username;
     // End of variables declaration//GEN-END:variables
 }
-class CanvasPanel extends Canvas{
+/*class CanvasPanel extends Canvas{
     public void paint(Graphics g){
         super.paint(g);
         Graphics2D g2=(Graphics2D) g;
-        MainFrame s = new MainFrame();
+        MCLauncherFX s = new MCLauncherFX();
         g2.drawImage(s.img,0,0,this);
     }
             
-}
+}*/
