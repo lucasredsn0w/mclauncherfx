@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package net.axdt;
-import net.axdt.utils.MCLauncher;
+package net.axdt.fx;
+import net.axdt.fx.utils.MCLauncher;
 import java.io.*;
 import java.awt.Graphics; 
 import java.awt.Graphics2D;
