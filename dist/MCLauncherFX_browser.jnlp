@@ -3,7 +3,7 @@
   <information>
     <title>MCLauncherFX</title>
     <vendor>lucas</vendor>
-    <description>null</description>
+    <description>Sample JavaFX 2.0 application.</description>
     <offline-allowed/>
   </information>
   <resources>
@@ -11,9 +11,9 @@
   </resources>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="MCLauncherFX.jar" size="29831" download="eager" />
+    <jar href="MCLauncherFX.jar" size="37444" download="eager" />
   </resources>
-  <applet-desc  width="800" height="600" main-class="net.fxteam.MCLauncherFX"  name="MCLauncherFX" >
+  <applet-desc  width="800" height="600" main-class="net.axdt.fx.MCLauncherFX"  name="MCLauncherFX" >
   </applet-desc>
   <update check="always"/>
 </jnlp>

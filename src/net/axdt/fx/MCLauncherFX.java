@@ -113,7 +113,7 @@ public String jpath;
             }
         });
 
-        src_topic.setFont(new java.awt.Font("Freestyle Script", 0, 24)); // NOI18N
+        src_topic.setFont(new java.awt.Font("Freestyle Script", 0, 36)); // NOI18N
         src_topic.setForeground(new java.awt.Color(51, 153, 255));
         src_topic.setText("LC's Minecraft Launcher FX Beta 3");
 
@@ -168,7 +168,11 @@ public String jpath;
 
         action_entersettings.setFont(new java.awt.Font("文泉驿微米黑", 0, 12)); // NOI18N
         action_entersettings.setText("进入设置");
-        action_entersettings.setEnabled(false);
+        action_entersettings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                action_entersettingsActionPerformed(evt);
+            }
+        });
 
         action_showdevlist.setFont(new java.awt.Font("文泉驿微米黑", 0, 12)); // NOI18N
         action_showdevlist.setText("开发者名单");
@@ -199,40 +203,40 @@ public String jpath;
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(action_searthforjava))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(rcv_isdebug)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel3))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(12, 12, 12)
                                         .addComponent(action_start)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(action_entersettings))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(rcv_isdebug)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel3)))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(action_showdevlist)))))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(action_entersettings)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel4))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(30, 30, 30)
+                                        .addComponent(action_showdevlist))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(9, 9, 9)
-                        .addComponent(rcv_username, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(src_topic)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(rcv_1024mem)
+                                    .addGap(55, 55, 55)
+                                    .addComponent(rcv_2048mem)
+                                    .addGap(34, 34, 34)
+                                    .addComponent(rcv_4096mem))
+                                .addComponent(rcv_username, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE))))))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(src_maxmem)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rcv_512mem)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rcv_1024mem)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rcv_2048mem)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rcv_4096mem))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(src_topic)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(src_maxmem)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rcv_512mem))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,17 +259,16 @@ public String jpath;
                     .addComponent(rcv_javapath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(action_searthforjava))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(rcv_isdebug)
-                        .addComponent(jLabel4)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rcv_isdebug)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(action_start)
                     .addComponent(action_entersettings)
                     .addComponent(action_showdevlist))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -332,7 +335,7 @@ public String jpath;
     }//GEN-LAST:event_action_searthforjavaActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-MCLauncher ls = new MCLauncher();
+/*MCLauncher ls = new MCLauncher();
 try{
 ls.checkforupdate();
 }
@@ -343,14 +346,47 @@ catch(IOException e)
 finally
 {
     
-}
+}*/
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
-
+  //由于服务器中断暂时关闭功能
     private void action_showdevlistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_action_showdevlistActionPerformed
 JOptionPane.showMessageDialog(null,"UI设计：Lucas\n内核设计：Lucas，“3”，Codes\n更新模块设计：Codes");
         // TODO add your handling code here:
     }//GEN-LAST:event_action_showdevlistActionPerformed
+
+    private void action_entersettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_action_entersettingsActionPerformed
+ /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(MCSettingFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(MCSettingFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(MCSettingFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(MCSettingFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                MCSettingFrame frame = new MCSettingFrame();
+                frame.setVisible(true);
+            }
+        });    // TODO add your handling code here:
+    }//GEN-LAST:event_action_entersettingsActionPerformed
 
     /**
      * @param args the command line arguments
