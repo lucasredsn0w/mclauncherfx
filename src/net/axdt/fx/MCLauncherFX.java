@@ -15,6 +15,7 @@ import java.net.*;
 import java.awt.*;
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import net.axdt.fx.utils.SimpleSettingSaver;
 
 /**
  *
@@ -277,36 +278,15 @@ public String jpath;
     private void action_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_action_startActionPerformed
         String username;
         username = rcv_username.getText();
-        int maxmem;
-       if(rcv_512mem.isSelected()==true)
-       {
-           maxmem=512;
-       }
-       else if (rcv_1024mem.isSelected()==true)
-       {
-           maxmem=1024;
-       }
-       else if (rcv_2048mem.isSelected()==true)
-       {
-           maxmem=2048;
-       }
-       else if (rcv_4096mem.isSelected()==true)
-       {
-           maxmem=4096;
-       }
-       else
-       {
-           maxmem=1024;
-       }
-      
-           
        
-         boolean isjava = rcv_isdebug.isSelected();
        MCLauncher launch = new MCLauncher();
            try{
-               
-           
-            launch.start(username,maxmem,jpath,isjava);
+               SimpleSettingSaver sss = new SimpleSettingSaver("launcher");
+               Object maxmem;
+               maxmem=sss.ReadSavedSettings("maxmem");
+               int realmem =(int) maxmem;
+           boolean isjava = false;
+            launch.start(username,realmem,jpath,isjava);
            }
          
            catch(IOException e)
