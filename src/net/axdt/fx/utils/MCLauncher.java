@@ -13,15 +13,25 @@ public class MCLauncher {
     public int GetProperMemory(){
         OperatingSystemMXBean osmxb =  (OperatingSystemMXBean) ManagementFactoryHelper.getOperatingSystemMXBean(); 
         long totalmem = osmxb.getFreePhysicalMemorySize()/mb;
+        String javamodel = System.getProperty("sun.arch.data.model");
+        int model=32;//64 or 32
+        try{
+            model=Integer.parseInt(javamodel);	
+        }
+        catch(Exception e){
+        	
+        }
         if(totalmem<=512)
             return 256;
         else if(totalmem<=1024)
             return 512;
         else if(totalmem<=2048)
             return 1024;
-        else if (totalmem<=4096)
+        else if (totalmem<=4096 && model==64)
             return 2048;
-        return 1;
+        else
+            return 1024;
+        return 1024;
                 
     }
     public int getjavaversion()
@@ -56,7 +66,7 @@ public class MCLauncher {
                 number=rand.nextInt();
                 username="Steve"+number;   
             }
-            else if(osName.indexOf("Windows")!=-1)
+            if(osName.indexOf("Windows")!=-1)
             {
 		String cmddebug = "java -Xmx"+maxmem+"M -cp .\\.minecraft\\bin\\jinput.jar;.\\.minecraft\\bin\\lwjgl.jar;.\\.minecraft\\bin\\lwjgl_util.jar;.\\.minecraft\\bin\\minecraft.jar -Djava.library.path=\".\\.minecraft\\bin\\natives\" net.minecraft.client.Minecraft "+username;
 		String cmd = "javaw -Xmx"+maxmem+"M -cp .\\.minecraft\\bin\\jinput.jar;.\\.minecraft\\bin\\lwjgl.jar;.\\.minecraft\\bin\\lwjgl_util.jar;.\\.minecraft\\bin\\minecraft.jar -Djava.library.path=\".\\.minecraft\\bin\\natives\" net.minecraft.client.Minecraft "+username;
