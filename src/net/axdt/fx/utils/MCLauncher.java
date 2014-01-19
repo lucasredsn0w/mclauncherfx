@@ -9,7 +9,9 @@ import java.net.*;
 import javax.swing.*;
 
 public class MCLauncher {
+
     public static final int mb=1048576;
+	
     public int GetProperMemory(){
         OperatingSystemMXBean osmxb =  (OperatingSystemMXBean) ManagementFactoryHelper.getOperatingSystemMXBean(); 
         long totalmem = osmxb.getFreePhysicalMemorySize()/mb;
@@ -21,16 +23,16 @@ public class MCLauncher {
         catch(Exception e){
         	
         }
-        if(totalmem<=512)
-            return 256;
-        else if(totalmem<=1024)
+        if(totalmem<=1024)
             return 512;
-        else if(totalmem<=2048)
+        else if(totalmem<=1536)
             return 1024;
-        else if (totalmem<=4096 && model==64)
+        else if(totalmem<=2048 && model==64)
+            return 1536;
+        else if(totalmem<=3072 && model==64)
             return 2048;
-        else
-            return 1024;
+        else if(model==64)
+            return 3072;
         return 1024;
                 
     }
@@ -48,8 +50,6 @@ public class MCLauncher {
             // else leave 1.5 as default (it's either 1.5 or unknown)   
            return 1;
         }  
-      
-
     }
     
     
